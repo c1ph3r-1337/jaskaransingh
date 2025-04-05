@@ -1,1 +1,505 @@
-hello,there
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@0.284.0/dist/umd/lucide.min.css" />
+</head>
+<body>
+  <div class="linux-portfolio">
+    <!-- Top Panel -->
+    <div class="top-panel">
+      <div class="panel-left">
+        <div class="dropdown">
+          <button class="dropdown-btn" id="apps-btn">Apps</button>
+          <div class="dropdown-content" id="apps-menu">
+            <button data-window="terminal">Terminal</button>
+            <button data-window="firefox">Web Browser</button>
+            <button data-window="filemanager">File Manager</button>
+            <button data-window="texteditor">Text Editor</button>
+            <button data-window="settings">Settings</button>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn" id="places-btn">Places</button>
+          <div class="dropdown-content" id="places-menu">
+            <button>Home</button>
+            <button>Documents</button>
+            <button>Pictures</button>
+            <button>Downloads</button>
+            <button>Network</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel-center" id="datetime">
+        Apr 6 12:21 AM
+      </div>
+      
+      <div class="panel-right">
+        <div class="system-icon">
+          <i data-lucide="bell"></i>
+        </div>
+        <div class="system-icon">
+          <i data-lucide="wifi"></i>
+        </div>
+        <div class="system-icon">
+          <i data-lucide="volume-2"></i>
+        </div>
+        <div class="system-icon battery">
+          <i data-lucide="battery"></i>
+          <span>70%</span>
+        </div>
+        <div class="system-stats">
+          <span>7.0 G/s</span>
+          <span>0.3 U/s</span>
+        </div>
+        <div class="system-percent">
+          100%
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop -->
+    <div class="desktop" id="desktop">
+      <!-- Desktop Icons -->
+      <div class="desktop-icons">
+        <div class="desktop-icon" data-window="terminal">
+          <div class="icon-container">
+            <span class="terminal-icon">$_</span>
+          </div>
+          <span class="icon-label">Terminal</span>
+        </div>
+        
+        <div class="desktop-icon" data-window="about">
+          <div class="icon-container">
+            <i data-lucide="folder"></i>
+          </div>
+          <span class="icon-label">About</span>
+        </div>
+        
+        <div class="desktop-icon" data-window="projects">
+          <div class="icon-container">
+            <i data-lucide="folder"></i>
+          </div>
+          <span class="icon-label">Projects</span>
+        </div>
+        
+        <!-- New Firefox Browser Icon -->
+        <div class="desktop-icon" data-window="firefox">
+          <div class="icon-container">
+            <!-- Using an image for the Firefox icon -->
+            <img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo-md.7ba3ce3e8f95.png" alt="Firefox" class="firefox-icon">
+          </div>
+          <span class="icon-label">Firefox</span>
+        </div>
+      </div>
+
+      <!-- Clock -->
+      <div class="desktop-clock" id="desktop-clock">
+        12:21:00 AM | 04/06/2025
+      </div>
+
+      <!-- Windows Container -->
+      <div class="windows-container" id="windows-container">
+        <!-- Windows will be created dynamically with JavaScript -->
+      </div>
+
+      <!-- Context Menu -->
+      <div class="context-menu" id="context-menu">
+        <button data-window="terminal">Open Terminal</button>
+        <button data-window="about">About Me</button>
+        <button data-window="projects">Projects</button>
+        <button data-window="skills">Skills</button>
+        <button data-window="contact">Contact</button>
+        <div class="context-divider"></div>
+        <button id="refresh-btn">Refresh</button>
+      </div>
+    </div>
+
+    <!-- Dock -->
+    <div class="dock" id="dock">
+      <div class="dock-handle"></div>
+      <div class="dock-icons">
+        <button class="dock-icon" data-window="terminal">
+          <i data-lucide="terminal"></i>
+        </button>
+        <button class="dock-icon" data-window="about">
+          <i data-lucide="user"></i>
+        </button>
+        <button class="dock-icon" data-window="projects">
+          <i data-lucide="briefcase"></i>
+        </button>
+        <button class="dock-icon" data-window="skills">
+          <i data-lucide="code"></i>
+        </button>
+        <button class="dock-icon" data-window="contact">
+          <i data-lucide="mail"></i>
+        </button>
+        <!-- Firefox icon in the dock -->
+        <button class="dock-icon" data-window="firefox">
+          <img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo-md.7ba3ce3e8f95.png" alt="Firefox" class="firefox-dock-icon">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Window Templates (Hidden) -->
+  <template id="window-template">
+    <div class="window" data-window="">
+      <div class="window-titlebar">
+        <div class="window-title"></div>
+        <div class="window-controls">
+          <button class="window-minimize">
+            <i data-lucide="minus"></i>
+          </button>
+          <button class="window-close">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+      <div class="window-content"></div>
+      <div class="window-resize-handle"></div>
+    </div>
+  </template>
+  
+
+  <!-- Window Content Templates -->
+  <template id="terminal-content">
+    <div class="terminal-container">
+      <div class="terminal-output" id="terminal-output">
+        <div class="terminal-line">Welcome to the Portfolio Terminal! Type 'help' to see available commands.</div>
+      </div>
+      <div class="terminal-input-line">
+        <span class="terminal-prompt">visitor@portfolio:~$</span>
+        <input type="text" class="terminal-input" id="terminal-input" autofocus>
+      </div>
+    </div>
+  </template>  
+
+  <template id="about-content">
+    <div class="about-container">
+      <h2 class="window-heading">About Me</h2>
+      
+      <div class="about-grid">
+        <div class="about-sidebar">
+          <div class="profile-card">
+            <img src="https://via.placeholder.com/300" alt="Profile" class="profile-image">
+            <h3 class="profile-name">Your Name</h3>
+            <p class="profile-title">Full Stack Developer</p>
+          </div>
+        </div>
+        
+        <div class="about-main">
+          <div class="about-section">
+            <h3 class="section-heading">Biography</h3>
+            <p>
+              I'm a passionate full-stack developer with expertise in modern web technologies. 
+              I enjoy building interactive and user-friendly applications that solve real-world problems.
+            </p>
+            <p>
+              With a background in computer science and several years of industry experience, 
+              I've worked on a variety of projects ranging from e-commerce platforms to data visualization tools.
+              I'm constantly learning and exploring new technologies to stay at the cutting edge of web development.
+            </p>
+          </div>
+          
+          <div class="about-section">
+            <h3 class="section-heading">Education</h3>
+            <div class="education-item">
+              <div class="item-title">Bachelor of Science in Computer Science</div>
+              <div class="item-subtitle">University Name, 2018-2022</div>
+            </div>
+            
+            <h3 class="section-heading">Experience</h3>
+            <div class="experience-item">
+              <div class="item-title">Senior Frontend Developer</div>
+              <div class="item-subtitle">Company Name, 2022-Present</div>
+              <ul class="item-list">
+                <li>Led development of the company's flagship web application</li>
+                <li>Implemented responsive designs and improved performance</li>
+              </ul>
+            </div>
+            
+            <div class="experience-item">
+              <div class="item-title">Junior Developer</div>
+              <div class="item-subtitle">Previous Company, 2020-2022</div>
+              <ul class="item-list">
+                <li>Developed and maintained client websites</li>
+                <li>Collaborated with design team to implement UI/UX improvements</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="projects-content">
+    <div class="projects-container">
+      <h2 class="window-heading">Projects</h2>
+      
+      <div class="projects-grid">
+        <div class="project-card" data-project-id="1">
+          <img src="https://via.placeholder.com/350x200" alt="E-Commerce Platform" class="project-image">
+          <div class="project-details">
+            <h3 class="project-title">E-Commerce Platform</h3>
+            <p class="project-description">A full-stack e-commerce platform built with Next.js, Tailwind CSS, and a headless CMS. Features include product filtering, user authentication, and payment processing.</p>
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag">Tailwind CSS</span>
+              <span class="project-tag">Stripe</span>
+              <span class="project-tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i data-lucide="github"></i>
+              </a>
+              <a href="#" class="project-link">
+                <i data-lucide="external-link"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-project-id="2">
+          <img src="https://via.placeholder.com/350x200" alt="Task Management App" class="project-image">
+          <div class="project-details">
+            <h3 class="project-title">Task Management App</h3>
+            <p class="project-description">A productivity application for managing tasks and projects. Includes features like drag-and-drop task organization, priority levels, and deadline notifications.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Redux</span>
+              <span class="project-tag">Firebase</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i data-lucide="github"></i>
+              </a>
+              <a href="#" class="project-link">
+                <i data-lucide="external-link"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-project-id="3">
+          <img src="https://via.placeholder.com/350x200" alt="Weather Dashboard" class="project-image">
+          <div class="project-details">
+            <h3 class="project-title">Weather Dashboard</h3>
+            <p class="project-description">A weather application that provides current conditions and forecasts for locations worldwide. Includes interactive maps and historical weather data.</p>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Chart.js</span>
+              <span class="project-tag">Weather API</span>
+              <span class="project-tag">Leaflet</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i data-lucide="github"></i>
+              </a>
+              <a href="#" class="project-link">
+                <i data-lucide="external-link"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-project-id="4">
+          <img src="https://via.placeholder.com/350x200" alt="Portfolio Website" class="project-image">
+          <div class="project-details">
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-description">A personal portfolio website with a Linux-inspired interface. Features include an interactive terminal, draggable windows, and a customizable dock.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i data-lucide="github"></i>
+              </a>
+              <a href="#" class="project-link">
+                <i data-lucide="external-link"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="skills-content">
+    <div class="skills-container">
+      <h2 class="window-heading">Skills</h2>
+      
+      <div class="skills-grid">
+        <div class="skills-sidebar">
+          <div class="skills-categories">
+            <h3 class="section-heading">Categories</h3>
+            <ul class="category-list">
+              <li><button class="category-btn active" data-category="frontend">Frontend</button></li>
+              <li><button class="category-btn" data-category="backend">Backend</button></li>
+              <li><button class="category-btn" data-category="database">Database</button></li>
+              <li><button class="category-btn" data-category="devops">DevOps & Tools</button></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="skills-main">
+          <div class="skills-section" id="skills-content-area">
+            <h3 class="section-heading">Frontend Skills</h3>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">HTML/CSS</span>
+                <span class="skill-level">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-level">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">TypeScript</span>
+                <span class="skill-level">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">React</span>
+                <span class="skill-level">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Next.js</span>
+                <span class="skill-level">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="certifications-section">
+            <h3 class="section-heading">Certifications</h3>
+            <ul class="certifications-list">
+              <li>AWS Certified Developer Associate</li>
+              <li>MongoDB Certified Developer</li>
+              <li>Google Professional Cloud Developer</li>
+              <li>React Certification - Meta</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="contact-content">
+    <div class="contact-container">
+      <h2 class="window-heading">Contact Me</h2>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-section">
+            <h3 class="section-heading">Get In Touch</h3>
+            
+            <div class="contact-item">
+              <i data-lucide="mail"></i>
+              <span>your.email@example.com</span>
+            </div>
+            
+            <div class="contact-item">
+              <i data-lucide="phone"></i>
+              <span>+1 (555) 123-4567</span>
+            </div>
+            
+            <div class="contact-item">
+              <i data-lucide="map-pin"></i>
+              <span>San Francisco, CA</span>
+            </div>
+          </div>
+          
+          <div class="contact-section">
+            <h3 class="section-heading">Social Media</h3>
+            
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <i data-lucide="github"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i data-lucide="linkedin"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i data-lucide="twitter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-container">
+          <h3 class="section-heading">Send a Message</h3>
+          
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+          
+          <div class="form-success" id="form-success">
+            Thank you for your message! I'll get back to you soon.
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- Firefox Browser Window Template -->
+  <template id="firefox-content">
+    <div class="firefox-browser-container">
+      <iframe src="https://google.com" frameborder="0"></iframe>
+    </div>
+  </template>
+
+  <!-- Load Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
