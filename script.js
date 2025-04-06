@@ -779,7 +779,4 @@ document.addEventListener('DOMContentLoaded', function() {
           }
       }
   });
-  
-  // Initialize with terminal open
-  openWindow('terminal');
 });
