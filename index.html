@@ -9,8 +9,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@latest/dist/umd/lucide.min.js">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@300;400;500;700&display=swap"
     rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2"
+    <link href="https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2"
     rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
+    
 </head>
 
 <body>
@@ -25,7 +28,7 @@
         <button data-window="terminal">Terminal</button>
         <button data-window="about">About Me</button>
         <button data-window="projects">Projects</button>
-        <button data-window="skills">Skills</button>
+  
         <button data-window="contact">Contact</button>
         <button id="refresh-btn">Refresh</button>
       </div>
@@ -73,6 +76,31 @@
     </div>
   </div>
 
+  <!-- Right-side Image Icon -->
+<div class="desktop-right-icon-container">
+  <a href="https://github.com/c1ph3r-1337" target="_blank">
+    <img src="github-mark-white.png" alt="Right Side Icon" class="desktop-right-icon">
+  </a>
+</div>
+
+<div class="desktop-right-icon-container1">
+  <a href="https://www.linkedin.com/in/jaskaransingh1337" target="_blank">
+    <img src="LinkedIn-Symbole-59830689.png" alt="Right Side Icon1" class="desktop-right-icon1">
+  </a>
+</div>
+
+<div class="desktop-right-icon-container3">
+  <a href="https://discord.gg/y765JuTJ3v" target="_blank">
+    <img src="discord-logo-discord-icon-transparent-free-png-986478203.png" alt="Right Side Icon3" class="desktop-right-icon3">
+  </a>
+</div>
+
+<div class="desktop-right-icon-container4">
+  <a href="mailto:jaskaran052006@gmail.com" target="_blank">
+    <img src="google-mail-gmail-icon-logo-symbol-free-png-2337685284.png" alt="Email Icon" class="desktop-right-icon4">
+  </a>
+</div>
+
   <!-- Desktop -->
   <div id="desktop" class="desktop">
     <!-- Desktop Clock -->
@@ -97,11 +125,7 @@
         <span>Projects</span>
       </div>
 
-      <div class="desktop-icon" data-window="skills">
-        <i data-lucide="code"></i>
-        <span>Skills</span>
-      </div>
-
+     
       <div class="desktop-icon" data-window="contact">
         <i data-lucide="mail"></i>
         <span>Contact</span>
@@ -127,11 +151,6 @@
         <div class="dock-icon" data-window="projects">
           <i data-lucide="folder"></i>
         </div>
-
-        <div class="dock-icon" data-window="skills">
-          <i data-lucide="code"></i>
-        </div>
-
         <div class="dock-icon" data-window="contact">
           <i data-lucide="mail"></i>
         </div>
@@ -143,7 +162,6 @@
       <button data-window="terminal">Open Terminal</button>
       <button data-window="about">About Me</button>
       <button data-window="projects">Projects</button>
-      <button data-window="skills">Skills</button>
       <button data-window="contact">Contact</button>
       <button id="refresh-btn">Refresh</button>
     </div>
@@ -186,40 +204,28 @@
         </div>
         <div class="profile-info">
           <h2>Jaskaran Singh</h2>
-          <p class="profile-title">Full Stack Developer</p>
-          <p class="profile-location"><i data-lucide="map-pin"></i> New York, USA</p>
+          <p class="profile-title">Cybersecurity Enthusiast</p>
+          <p class="profile-location"><span class="material-symbols-outlined">
+            person_pin_circle
+            </span> Punjab, India</p>
         </div>
       </div>
 
       <div class="about-content">
         <h3 class="section-heading">About Me</h3>
-        <p>Hello! I'm a passionate full-stack developer with expertise in modern web technologies. I love building
-          interactive and user-friendly applications that solve real-world problems.</p>
-        <p>With a background in computer science and several years of industry experience, I've worked on a variety of
-          projects ranging from small business websites to complex enterprise applications.</p>
-        <p>When I'm not coding, you can find me hiking, reading tech blogs, or experimenting with new programming
-          languages and frameworks.</p>
+        <p>Hello! I'm a cybersecurity enthusiast driven by curiosity and a passion for digital defense. I enjoy exploring the depths of ethical hacking, vulnerability research, and penetration testing.</p>
+        <p>With a solid foundation in computer science and hands-on experience with CTFs and real-world scenarios, I aim to contribute to a safer and more secure cyberspace.</p>
+        <p>When I'm not digging through logs or exploiting a challenge box, I'm usually diving into infosec blogs, tinkering with new tools, or learning about the latest threats and attack vectors.</p>
 
         <h3 class="section-heading">Education</h3>
         <div class="education-item">
-          <h4>Master of Computer Science</h4>
-          <p>Stanford University, 2018-2020</p>
-        </div>
-        <div class="education-item">
-          <h4>Bachelor of Science in Software Engineering</h4>
-          <p>MIT, 2014-2018</p>
+          <h4>Bachelor of Computer Science in Cyber Security</h4>
+          <p>CT University, 2024-2028</p>
         </div>
 
         <h3 class="section-heading">Experience</h3>
         <div class="experience-item">
-          <h4>Senior Developer at Tech Innovations</h4>
-          <p>2020 - Present</p>
-          <p>Leading development of web applications using React, Node.js, and AWS.</p>
-        </div>
-        <div class="experience-item">
-          <h4>Web Developer at Digital Solutions</h4>
-          <p>2018 - 2020</p>
-          <p>Developed and maintained client websites and e-commerce platforms.</p>
+          <h4>No Experience 🤪</h4>
         </div>
       </div>
     </div>
@@ -229,96 +235,76 @@
   <template id="projects-content">
     <div class="projects-container">
       <h3 class="section-heading">My Projects</h3>
-
+  
       <div class="projects-grid">
+  
         <div class="project-card">
           <div class="project-header">
-            <h4>E-Commerce Platform</h4>
+            <h4>CloudSync 📡💾</h4>
             <div class="project-links">
-              <a href="#" class="project-link"><i data-lucide="github"></i></a>
-              <a href="#" class="project-link"><i data-lucide="external-link"></i></a>
+              <a href="https://github.com/c1ph3r-1337/CloudSync" class="project-link">🔗</a>
             </div>
           </div>
-          <p class="project-description">A full-featured e-commerce platform built with React, Node.js, and MongoDB.
-            Features include user authentication, product management, shopping cart, and payment processing.</p>
+          <p class="project-description">A cloud-based NAS for ESP32 with SD card storage, responsive UI, and real-time WebSocket updates.</p>
           <div class="project-tech">
-            <span class="tech-tag">React</span>
+            <span class="tech-tag">ESP32</span>
+            <span class="tech-tag">SD Card</span>
+            <span class="tech-tag">WebSocket</span>
+            <span class="tech-tag">HTML/CSS/JS</span>
+          </div>
+        </div>
+  
+        <div class="project-card">
+          <div class="project-header">
+            <h4>StealthSync 💬</h4>
+            <div class="project-links">
+              <a href="https://github.com/c1ph3r-1337/StealthSync" class="project-link">🔗</a>
+            </div>
+          </div>
+          <p class="project-description">An encrypted 1-on-1 chat app with Discord-like features, random usernames, and self-destructing messages.</p>
+          <div class="project-tech">
             <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">MongoDB</span>
-            <span class="tech-tag">Stripe</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h4>Task Management App</h4>
-            <div class="project-links">
-              <a href="#" class="project-link"><i data-lucide="github"></i></a>
-              <a href="#" class="project-link"><i data-lucide="external-link"></i></a>
-            </div>
-          </div>
-          <p class="project-description">A collaborative task management application with real-time updates,
-            drag-and-drop interface, and team collaboration features.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Vue.js</span>
-            <span class="tech-tag">Firebase</span>
-            <span class="tech-tag">Tailwind CSS</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h4>Weather Dashboard</h4>
-            <div class="project-links">
-              <a href="#" class="project-link"><i data-lucide="github"></i></a>
-              <a href="#" class="project-link"><i data-lucide="external-link"></i></a>
-            </div>
-          </div>
-          <p class="project-description">A weather dashboard that displays current weather conditions and forecasts for
-            multiple locations. Uses OpenWeatherMap API for data.</p>
-          <div class="project-tech">
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">Chart.js</span>
-            <span class="tech-tag">API</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h4>Portfolio Website</h4>
-            <div class="project-links">
-              <a href="#" class="project-link"><i data-lucide="github"></i></a>
-              <a href="#" class="project-link"><i data-lucide="external-link"></i></a>
-            </div>
-          </div>
-          <p class="project-description">A Linux-inspired portfolio website with interactive terminal, window
-            management, and responsive design.</p>
-          <div class="project-tech">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">WebSocket</span>
             <span class="tech-tag">JavaScript</span>
           </div>
         </div>
+  
+        <div class="project-card">
+          <div class="project-header">
+            <h4>ARP Spoofing Detector</h4>
+            <div class="project-links">
+              <a href="https://github.com/c1ph3r-1337/ARP_DISCORD_NOTIFIER" class="project-link">🔗</a>
+            </div>
+          </div>
+          <p class="project-description">A Python-based ARP spoof detection tool that monitors local network and alerts via Discord webhook.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Networking</span>
+            <span class="tech-tag">Discord API</span>
+          </div>
+        </div>
+  
+        <div class="project-card">
+          <div class="project-header">
+            <h4>Docker Packet Sniffer</h4>
+            <div class="project-links">
+              <a href="https://github.com/c1ph3r-1337/Packet_Sniffer" class="project-link">🔗</a>
+            </div>
+          </div>
+          <p class="project-description">Simulates MITM attacks in Docker using ettercap and tcpdump to analyze captured network traffic.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Ettercap</span>
+            <span class="tech-tag">Tcpdump</span>
+            <span class="tech-tag">Bash</span>
+          </div>
+        </div>
+  
       </div>
     </div>
   </template>
+  
 
-  <!-- Skills Content Template -->
-  <template id="skills-content">
-    <div class="skills-container">
-      <div class="skills-sidebar">
-        <button class="category-btn active" data-category="frontend">Frontend</button>
-        <button class="category-btn" data-category="backend">Backend</button>
-        <button class="category-btn" data-category="database">Database</button>
-        <button class="category-btn" data-category="devops">DevOps</button>
-      </div>
-
-      <div id="skills-content-area" class="skills-content">
-        <h3 class="section-heading">Frontend Skills</h3>
-        <!-- Skills will be dynamically inserted here by JS -->
-      </div>
-    </div>
-  </template>
 
   <!-- Contact Content Template -->
   <template id="contact-content">
@@ -327,54 +313,25 @@
 
       <div class="contact-info">
         <div class="contact-item">
-          <i data-lucide="mail"></i>
-          <span>john.doe@example.com</span>
+          <span class="material-symbols-outlined">
+            mail
+            </span>
+          <span>jaskaran052006@gmail.com</span>
         </div>
         <div class="contact-item">
-          <i data-lucide="phone"></i>
-          <span>+1 (123) 456-7890</span>
+          <span class="material-symbols-outlined">
+            call
+            </span>
+          <span>+91 9779744244</span>
         </div>
         <div class="contact-item">
-          <i data-lucide="map-pin"></i>
-          <span>New York, USA</span>
+          <span class="material-symbols-outlined">
+            person_pin_circle
+            </span>
+          <span>Punjab, India</span>
         </div>
       </div>
 
-      <form id="contact-form" class="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" required>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-
-      <div id="form-success" class="form-success" style="display: none;">
-        <i data-lucide="check-circle"></i>
-        <p>Your message has been sent successfully!</p>
-      </div>
-
-      <div class="social-links">
-        <a href="#" class="social-link"><i data-lucide="github"></i></a>
-        <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
-        <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
-        <a href="#" class="social-link"><i data-lucide="instagram"></i></a>
-      </div>
     </div>
   </template>
 

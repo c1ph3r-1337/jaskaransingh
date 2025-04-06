@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
           terminal: { open: false, minimized: false, zIndex: 1 },
           about: { open: false, minimized: false, zIndex: 1 },
           projects: { open: false, minimized: false, zIndex: 1 },
-          skills: { open: false, minimized: false, zIndex: 1 },
           contact: { open: false, minimized: false, zIndex: 1 }
       },
       activeWindow: null,
@@ -18,46 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
           terminal: { x: 870, y: 400 },
           about: { x: 150, y: 120 },
           projects: { x: 200, y: 150 },
-          skills: { x: 250, y: 180 },
           contact: { x: 300, y: 200 }
       },
       windowSizes: {
           terminal: { width: 800, height: 450 }, // 16:9 aspect ratio
           about: { width: 800, height: 450 },    // 16:9 aspect ratio
-          projects: { width: 800, height: 450 }, // 16:9 aspect ratio
-          skills: { width: 640, height: 360 },   // 16:9 aspect ratio
+          projects: { width: 800, height: 475 }, // 16:9 aspect ratio
           contact: { width: 640, height: 360 }   // 16:9 aspect ratio
-      },
-      skillsData: {
-          frontend: [
-              { name: "HTML/CSS", level: 90 },
-              { name: "JavaScript", level: 85 },
-              { name: "TypeScript", level: 80 },
-              { name: "React", level: 85 },
-              { name: "Next.js", level: 80 },
-              { name: "Tailwind CSS", level: 90 }
-          ],
-          backend: [
-              { name: "Node.js", level: 80 },
-              { name: "Express", level: 75 },
-              { name: "Python", level: 70 },
-              { name: "Django", level: 65 },
-              { name: "GraphQL", level: 70 }
-          ],
-          database: [
-              { name: "MongoDB", level: 80 },
-              { name: "PostgreSQL", level: 75 },
-              { name: "MySQL", level: 70 },
-              { name: "Firebase", level: 75 },
-              { name: "Redis", level: 65 }
-          ],
-          devops: [
-              { name: "Git", level: 85 },
-              { name: "Docker", level: 70 },
-              { name: "CI/CD", level: 65 },
-              { name: "AWS", level: 60 },
-              { name: "Linux", level: 75 }
-          ]
       },
       terminalHistory: [
           { type: 'output', content: '' }
@@ -95,10 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const minutes = now.getMinutes().toString().padStart(2, '0');
       datetimeEl.textContent = `${month} ${day} ${hours}:${minutes} ${ampm}`;
       
-      // Format for desktop clock
-      const seconds = now.getSeconds().toString().padStart(2, '0');
-      const formattedDate = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
-      desktopClockEl.textContent = `${hours}:${minutes}:${seconds} ${ampm} | ${formattedDate}`;
   }
   
   // Initialize and update clock
@@ -211,7 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
           case 'terminal': titleEl.textContent = 'Terminal'; break;
           case 'about': titleEl.textContent = 'About Me'; break;
           case 'projects': titleEl.textContent = 'Projects'; break;
-          case 'skills': titleEl.textContent = 'Skills'; break;
           case 'contact': titleEl.textContent = 'Contact'; break;
       }
       
@@ -225,8 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Initialize specific window content
       if (windowName === 'terminal') {
           initializeTerminal(windowEl);
-      } else if (windowName === 'skills') {
-          initializeSkills(windowEl);
       } else if (windowName === 'contact') {
           initializeContactForm(windowEl);
       } else if (windowName === 'projects') {
@@ -509,10 +468,9 @@ document.addEventListener('DOMContentLoaded', function() {
       return `Available commands:
   - about: Display information about me
   - projects: View my projects
-  - skills: List my technical skills
   - contact: Show contact information
   - clear: Clear the terminal
-  - open [window]: Open a specific window (terminal, about, projects, skills, contact)
+  - open [window]: Open a specific window (terminal, about, projects, contact)
   - close [window]: Close a specific window
   - minimize [window]: Minimize a specific window
   - restore [window]: Restore a minimized window
@@ -527,16 +485,11 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (lowerCommand === 'projects') {
       openWindow('projects');
       return 'Opening projects window...';
-    } else if (lowerCommand === 'skills') {
-      openWindow('skills');
-      return 'Opening skills window...';
     } else if (lowerCommand === 'contact') {
       openWindow('contact');
       return 'Opening contact window...';
     } else if (lowerCommand === 'clear') {
       return 'CLEAR';
-    } else if (lowerCommand === 'ls') {
-      return 'about\nprojects\nskills\ncontact';
     } else if (lowerCommand === 'date') {
       return new Date().toString();
     } else if (lowerCommand === 'whoami') {
@@ -551,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
         openWindow(windowName);
         return `Opening ${windowName} window...`;
       } else {
-        return `Window '${windowName}' not found. Available windows: terminal, about, projects, skills, contact`;
+        return `Window '${windowName}' not found. Available windows: terminal, about, projects, contact`;
       }
     } else if (lowerCommand.startsWith('close ')) {
       const windowName = lowerCommand.split(' ')[1];
@@ -559,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function() {
         closeWindow(windowName);
         return `Closing ${windowName} window...`;
       } else {
-        return `Window '${windowName}' not found. Available windows: terminal, about, projects, skills, contact`;
+        return `Window '${windowName}' not found. Available windows: terminal, about, projects, contact`;
       }
     } else if (lowerCommand.startsWith('minimize ')) {
       const windowName = lowerCommand.split(' ')[1];
@@ -567,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function() {
         minimizeWindow(windowName);
         return `Minimizing ${windowName} window...`;
       } else {
-        return `Window '${windowName}' not found. Available windows: terminal, about, projects, skills, contact`;
+        return `Window '${windowName}' not found. Available windows: terminal, about, projects, contact`;
       }
     } else if (lowerCommand.startsWith('restore ')) {
       const windowName = lowerCommand.split(' ')[1];
@@ -575,7 +528,7 @@ document.addEventListener('DOMContentLoaded', function() {
         restoreWindow(windowName);
         return `Restoring ${windowName} window...`;
       } else if (!state.windows[windowName]) {
-        return `Window '${windowName}' not found. Available windows: terminal, about, projects, skills, contact`;
+        return `Window '${windowName}' not found. Available windows: terminal, about, projects, contact`;
       } else {
         return `Window '${windowName}' is not minimized.`;
       }
@@ -584,26 +537,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Initialize skills window
-  function initializeSkills(windowEl) {
-      const categoryBtns = windowEl.querySelectorAll('.category-btn');
-      const skillsContentArea = windowEl.querySelector('#skills-content-area');
-      
-      categoryBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-              // Update active button
-              categoryBtns.forEach(b => b.classList.remove('active'));
-              btn.classList.add('active');
-              
-              // Get category and update content
-              const category = btn.dataset.category;
-              updateSkillsContent(category, skillsContentArea);
-          });
-      });
-      
-      // Initialize with first category
-      updateSkillsContent('frontend', skillsContentArea);
-  }
+
   
   // Initialize projects window
   function initializeProjects(windowEl) {
@@ -620,35 +554,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
   
-  // Update skills content based on selected category
-  function updateSkillsContent(category, contentArea) {
-      const skills = state.skillsData[category];
-      const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
-      
-      // Update heading
-      const heading = contentArea.querySelector('.section-heading');
-      heading.textContent = `${categoryTitle} Skills`;
-      
-      // Clear existing skills
-      const existingSkills = contentArea.querySelectorAll('.skill-item');
-      existingSkills.forEach(item => item.remove());
-      
-      // Add new skills
-      skills.forEach(skill => {
-          const skillItem = document.createElement('div');
-          skillItem.className = 'skill-item';
-          skillItem.innerHTML = `
-              <div class="skill-header">
-                  <span class="skill-name">${skill.name}</span>
-                  <span class="skill-level">${skill.level}%</span>
-              </div>
-              <div class="skill-bar">
-                  <div class="skill-progress" style="width: ${skill.level}%"></div>
-              </div>
-          `;
-          contentArea.appendChild(skillItem);
-      });
-  }
   
   // Initialize contact form
   function initializeContactForm(windowEl) {

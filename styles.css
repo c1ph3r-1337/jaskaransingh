@@ -15,6 +15,7 @@
   --terminal-prompt: #6c5ce7;
   --terminal-command: #6c5ce7;
   --terminal-output: #6cd52a;
+  --new-color: #7653c3;
 }
 
 * {
@@ -177,7 +178,7 @@ body {
   border-radius: 8px;
 
   /* new: border */
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--new-color);
   
   /* existing */
   transition: background-color 0.2s;
@@ -206,7 +207,7 @@ body {
 .window {
   position: absolute;
   background-color: var(--window-bg);
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--new-color);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -336,7 +337,7 @@ body {
   border-radius: 12px;
 
   /* new: border */
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--new-color);
   
   /* existing */
   display: flex;
@@ -592,20 +593,6 @@ body {
   font-size: 12px;
 }
 
-/* Skills Section */
-.skills-container {
-  display: flex;
-  gap: 20px;
-  height: 100%;
-}
-
-.skills-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 120px;
-}
-
 .category-btn {
   background: none;
   border: none;
@@ -626,41 +613,6 @@ body {
   border-left: 3px solid var(--accent-color);
 }
 
-.skills-content {
-  flex: 1;
-  overflow-y: auto;
-}
-
-.skill-item {
-  margin-bottom: 16px;
-}
-
-.skill-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 4px;
-}
-
-.skill-name {
-  font-weight: 500;
-}
-
-.skill-level {
-  color: var(--accent-color);
-}
-
-.skill-bar {
-  height: 8px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.skill-progress {
-  height: 100%;
-  background-color: var(--accent-color);
-  border-radius: 4px;
-}
 
 /* Contact Section */
 .contact-container {
@@ -874,16 +826,6 @@ body {
       grid-template-columns: 1fr;
   }
   
-  .skills-container {
-      flex-direction: column;
-  }
-  
-  .skills-sidebar {
-      flex-direction: row;
-      overflow-x: auto;
-      min-width: auto;
-  }
-  
   .profile-section {
       flex-direction: column;
       text-align: center;
@@ -899,3 +841,76 @@ body {
 .window:focus {
   outline: none;
 }
+
+.desktop-right-icon-container {
+  position: fixed;
+  right: 30px;
+  top: 6%;
+  transform: translateY(-50%);
+  z-index: 1000; /* Ensures it sits on top of other elements */
+}
+
+.desktop-right-icon {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.desktop-right-icon:hover {
+  transform: scale(1.1);
+}
+
+.desktop-right-icon-container1 {
+  position: fixed;
+  right: 6px;
+  top: 12%;
+  transform: translateY(-50%);
+  z-index: 1000; /* Ensures it sits on top of other elements */
+}
+
+.desktop-right-icon1 {
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.desktop-right-icon1:hover {
+  transform: scale(1.1);
+}
+
+.desktop-right-icon-container3 {
+  position: fixed;
+  right: 14px;
+  top: 18%;
+  transform: translateY(-50%);
+  z-index: 1000; /* Ensures it sits on top of other elements */
+}
+
+.desktop-right-icon3 {
+  width: 85px; /* Adjust size as needed */
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.desktop-right-icon3:hover {
+  transform: scale(1.1);
+}
+
+.desktop-right-icon-container4 {
+  position: fixed;
+  right: 28px;
+  top: 24%; /* Adjust the vertical position as needed */
+  transform: translateY(-50%);
+  z-index: 1000; /* Ensures the icon is above other elements */
+}
+
+.desktop-right-icon4 {
+  width: 55px; /* Adjust size as needed */
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.desktop-right-icon4:hover {
+  transform: scale(1.1);
+}
+
